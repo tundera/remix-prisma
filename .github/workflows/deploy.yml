@@ -26,8 +26,6 @@ jobs:
 
       - name: Setup prisma
         run: PRISMA_CLIENT_ENGINE_TYPE=dataproxy npx prisma generate
-        env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
       - name: Publish
         run: npx wrangler publish
