@@ -41,6 +41,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@cld-apis/utils@npm:^0.1.3":
+  version: 0.1.3
+  resolution: "@cld-apis/utils@npm:0.1.3"
+  dependencies:
+    lodash.snakecase: ^4.1.1
+  checksum: 3cb388d077ffa3c562af8335791a73d358cc713559a7fcf251dc16dc09b4ab105f82cdfde98424f96bae3dfad1a891af18e7d834ae5b36ed851d278ca709f750
+  languageName: node
+  linkType: hard
+
 "@cloudflare/kv-asset-handler@npm:^0.1.3":
   version: 0.1.3
   resolution: "@cloudflare/kv-asset-handler@npm:0.1.3"
@@ -1738,6 +1747,15 @@ __metadata:
   version: 2.1.2
   resolution: "clone@npm:2.1.2"
   checksum: aaf106e9bc025b21333e2f4c12da539b568db4925c0501a1bf4070836c9e848c892fa22c35548ce0d1132b08bbbfa17a00144fe58fccdab6fa900fec4250f67d
+  languageName: node
+  linkType: hard
+
+"cloudinary-build-url@npm:0.2.1":
+  version: 0.2.1
+  resolution: "cloudinary-build-url@npm:0.2.1"
+  dependencies:
+    "@cld-apis/utils": ^0.1.3
+  checksum: ca1adc88fe1046484e7340b6ecdf2865fd721d9f5798efbef798758418a2f12cb2a83cb9252ff85ffee2a95b810a4e5fd17d939a62585a14afff285b7734b56d
   languageName: node
   linkType: hard
 
@@ -4485,6 +4503,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash.snakecase@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "lodash.snakecase@npm:4.1.1"
+  checksum: 1685ed3e83dda6eae5a4dcaee161a51cd210aabb3e1c09c57150e7dd8feda19e4ca0d27d0631eabe8d0f4eaa51e376da64e8c018ae5415417c5890d42feb72a8
+  languageName: node
+  linkType: hard
+
 "lodash.topath@npm:^4.5.2":
   version: 4.5.2
   resolution: "lodash.topath@npm:4.5.2"
@@ -6509,6 +6534,7 @@ __metadata:
     "@types/react": ^17.0.35
     "@types/react-dom": ^17.0.11
     classnames: ^2.3.1
+    cloudinary-build-url: 0.2.1
     commitizen: 4.2.4
     concurrently: ^6.4.0
     cross-env: ^7.0.3
