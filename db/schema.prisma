@@ -9,7 +9,7 @@ generator client {
 }
 
 model Log {
-  id        String   @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  id        String   @id @default(cuid()) @map("_id")
   createdAt DateTime @default(now())
   level     Level
   message   String
@@ -23,7 +23,7 @@ enum Level {
 }
 
 model Coach {
-  id          String   @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  id          String   @id @default(cuid()) @map("_id")
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   name        String
@@ -31,11 +31,11 @@ model Coach {
   type        String
   isAssistant String
   team        Team?    @relation(fields: [teamId], references: [id])
-  teamId      String?  @db.ObjectId
+  teamId      String?
 }
 
 model Player {
-  id        String   @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  id        String   @id @default(cuid()) @map("_id")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   name      String
@@ -46,23 +46,23 @@ model Player {
   number    String?
   position  String?
   team      Team?    @relation(fields: [teamId], references: [id])
-  teamId    String?  @db.ObjectId
+  teamId    String?
 }
 
 model ColorScheme {
-  id        String   @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  id        String   @id @default(cuid()) @map("_id")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   primary   String
   secondary String
   team      Team?    @relation(fields: [teamId], references: [id])
-  teamId    String?  @unique @db.ObjectId
+  teamId    String?  @unique
 
   @@unique([primary, secondary], name: "ColorScheme_primary_secondary_key")
 }
 
 model Team {
-  id            String       @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  id            String       @id @default(cuid()) @map("_id")
   createdAt     DateTime     @default(now())
   updatedAt     DateTime     @updatedAt
   name          String       @unique
