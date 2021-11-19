@@ -1,81 +1,78 @@
-import { useRef } from "react";
-import type { ActionFunction, LoaderFunction, MetaFunction } from "remix";
-import { json, Form, useLoaderData, useSubmit } from "remix";
+import type { ActionFunction, LoaderFunction, MetaFunction } from 'remix'
 
-import prisma from "../prisma.server";
-import { unencryptedSession } from "../sessions.server";
+import { useRef } from 'react'
+import { json, Form, useLoaderData, useSubmit } from 'remix'
 
-let VALID_THEMES = [
-  "dark",
-  "light",
-  "cupcake",
-  "bumblebee",
-  "emerald",
-  "corporate",
-  "synthwave",
-  "retro",
-  "cyberpunk",
-  "valentine",
-];
+import db from '../db.server'
+import { unencryptedSession } from '../sessions.server'
 
-export let meta: MetaFunction = () => {
+const VALID_THEMES = [
+  'dark',
+  'light',
+  'cupcake',
+  'bumblebee',
+  'emerald',
+  'corporate',
+  'synthwave',
+  'retro',
+  'cyberpunk',
+  'valentine',
+]
+
+export const meta: MetaFunction = () => {
   return {
-    title: "Themes | Remix Cloudflare Demo",
-    description: "Demo utilizing cookies to change the theme.",
-  };
-};
+    title: 'Themes | Remix Cloudflare Demo',
+    description: 'Demo utilizing cookies to change the theme.',
+  }
+}
 
-export let action: ActionFunction = async ({ request }) => {
-  let session = await unencryptedSession.getSession(
-    request.headers.get("Cookie")
-  );
+export const action: ActionFunction = async ({ request }) => {
+  const session = await unencryptedSession.getSession(request.headers.get('Cookie'))
 
-  let formData = new URLSearchParams(await request.text());
+  const formData = new URLSearchParams(await request.text())
 
-  let theme = formData.get("theme") || "dark";
-  session.set("theme", theme);
+  const theme = formData.get('theme') || 'dark'
+  session.set('theme', theme)
 
-  await prisma.log.create({
+  await db.log.create({
     data: {
-      level: "Info",
+      level: 'Info',
       message: `theme set to ${theme}`,
       meta: {},
     },
-  });
+  })
 
   return json(null, {
     headers: {
-      "Set-Cookie": await unencryptedSession.commitSession(session),
+      'Set-Cookie': await unencryptedSession.commitSession(session),
     },
-  });
-};
+  })
+}
 
-export let loader: LoaderFunction = async ({ request }) => {
-  let session = await unencryptedSession.getSession(
-    request.headers.get("Cookie")
-  );
-  let theme = session.get("theme") || "dark";
+export const loader: LoaderFunction = async ({ request }) => {
+  const session = await unencryptedSession.getSession(request.headers.get('Cookie'))
+  const theme = session.get('theme') || 'dark'
 
-  return json(theme);
-};
+  return json(theme)
+}
 
 export default function Themes() {
-  let selectedTheme = useLoaderData();
+  const selectedTheme = useLoaderData()
 
-  let formRef = useRef<HTMLFormElement>(null);
-  let submit = useSubmit();
+  const formRef = useRef<HTMLFormElement>(null)
+  const submit = useSubmit()
 
-  let onRadioChanged = () => {
-    submit(formRef.current);
-  };
+  const onRadioChanged = () => {
+    submit(formRef.current)
+  }
 
   return (
-    <main className="container mx-auto prose px-4 py-8">
+    <main className="container px-4 py-8 mx-auto prose">
       <h1>Themes</h1>
 
       <p>
-        By storing the user selected theme in a cookie we can provide a zero
-        flicker experience even on initial page load.
+        By storing the user selected theme in a cookie we can provide a zero flicker experience even
+        on initial page load.
       </p>
 
       <Form ref={formRef} method="post">
@@ -102,5 +99,5 @@ export default function Themes() {
         </noscript>
       </Form>
     </main>
-  );
+  )
 }

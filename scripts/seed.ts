@@ -1,6 +1,6 @@
 import task from 'tasuku'
 
-import { db } from 'app/lib/db'
+import db from 'app/db.server'
 
 import coaches from 'db/data/backups/documents/coaches.json'
 import players from 'db/data/backups/documents/players.json'
@@ -89,7 +89,6 @@ export const seedColorSchemesData = async () => {
       primary: colorScheme.primary,
       secondary: colorScheme.secondary,
     })),
-    skipDuplicates: true,
   })
 }
 

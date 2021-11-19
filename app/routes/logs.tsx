@@ -1,31 +1,27 @@
-import type { LoaderFunction, MetaFunction } from "remix";
-import { json, useLoaderData } from "remix";
+import type { LoaderFunction, MetaFunction } from 'remix'
 
-import type { Log } from "@prisma/client";
-import prisma from "../prisma.server";
+import { json, useLoaderData } from 'remix'
 
-export let meta: MetaFunction = () => {
+import { getLogsData } from '../lib/logs'
+
+type LogsLoaderData = Await<ReturnType<typeof getLogsData>>
+
+export const meta: MetaFunction = () => {
   return {
-    title: "Prisma Logs | Remix Cloudflare Demo",
-    description: "Demo reading from a mysql database using prisma.",
-  };
-};
+    title: 'Logs | Remix Cloudflare Demo',
+    description: 'Demo reading from a mongodb database using prisma.',
+  }
+}
 
-export let loader: LoaderFunction = async () => {
-  let logs = await prisma.log.findMany({
-    orderBy: {
-      createdAt: "desc",
-    },
-    take: 20,
-  });
-  return json(logs);
-};
+export const loader: LoaderFunction = async ({ request }) => {
+  return json(await getLogsData())
+}
 
 export default function Logs() {
-  let logs = useLoaderData<Log[]>();
+  const { logs } = useLoaderData<LogsLoaderData>()
 
   return (
-    <main className="container mx-auto prose px-4 py-8">
+    <main className="container px-4 py-8 mx-auto prose">
       <h1>Logs from mysql through prisma</h1>
 
       <ul>
@@ -40,5 +36,5 @@ export default function Logs() {
         ))}
       </ul>
     </main>
-  );
+  )
 }

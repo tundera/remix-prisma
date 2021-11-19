@@ -1,19 +1,14 @@
-import { Link } from "remix";
-import { useLocation } from "react-router-dom";
+import { Link } from 'remix'
+import { useLocation } from 'react-router-dom'
 
 export default function Navbar() {
-  let { pathname } = useLocation();
+  const { pathname } = useLocation()
 
   return (
-    <div className="navbar shadow-lg bg-neutral text-neutral-content">
-      {pathname !== "/" ? (
+    <div className="shadow-lg navbar bg-neutral text-neutral-content">
+      {pathname !== '/' ? (
         <div className="flex-none">
-          <Link
-            prefetch="intent"
-            to="/"
-            className="btn btn-square btn-ghost"
-            title="Go home"
-          >
+          <Link prefetch="intent" to="/" className="btn btn-square btn-ghost" title="Go home">
             <svg
               fill="none"
               viewBox="0 0 24 24"
@@ -33,5 +28,5 @@ export default function Navbar() {
         <span className="text-lg font-bold">Remix + Cloudflare = ❤️</span>
       </div>
     </div>
-  );
+  )
 }

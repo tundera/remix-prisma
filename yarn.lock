@@ -50,6 +50,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@cloudflare/kv-asset-handler@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "@cloudflare/kv-asset-handler@npm:0.2.0"
+  dependencies:
+    mime: ^3.0.0
+  checksum: bc6a02a9c80be6de90e46454ef4de09301e68726eaa4835de0e30216e50fffcc5612274a17dfb455916cf3418f0cb25fefd2b561a9d2282f4cc10d40527f0acb
+  languageName: node
+  linkType: hard
+
 "@cloudflare/workers-types@npm:^2.2.2":
   version: 2.2.2
   resolution: "@cloudflare/workers-types@npm:2.2.2"
@@ -57,7 +66,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cloudflare/wrangler@npm:^1.19.4":
+"@cloudflare/workers-types@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "@cloudflare/workers-types@npm:3.2.0"
+  checksum: 324478f818099d45f9397d4fafc51c0137de319decde3b9ac73b6b8e2f57fffd11bf28cc768a888c9f7dee8cfbc92f8f0ceaba4d9ed496d39fb154376a96ad48
+  languageName: node
+  linkType: hard
+
+"@cloudflare/wrangler@npm:^1.19.5":
   version: 1.19.5
   resolution: "@cloudflare/wrangler@npm:1.19.5"
   dependencies:
@@ -131,7 +147,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cypress/request@npm:^2.88.6":
+"@cypress/request@npm:^2.88.7":
   version: 2.88.7
   resolution: "@cypress/request@npm:2.88.7"
   dependencies:
@@ -318,7 +334,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@prisma/client@npm:^3.5.0":
+"@prisma/client@npm:3.5.0":
   version: 3.5.0
   resolution: "@prisma/client@npm:3.5.0"
   dependencies:
@@ -494,7 +510,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/cypress@npm:^8.0.1":
+"@testing-library/cypress@npm:^8.0.2":
   version: 8.0.2
   resolution: "@testing-library/cypress@npm:8.0.2"
   dependencies:
@@ -725,7 +741,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*":
+"@types/node@npm:*, @types/node@npm:16.11.9":
   version: 16.11.9
   resolution: "@types/node@npm:16.11.9"
   checksum: baec2e6471ee58fd1e9874e6f47ab95a918a0f46b42424392e4c13e3e07f078f8b72b6b48073b0b14f710ed66c5f1b2e497df43f28151000f11f5f299382cfe2
@@ -767,7 +783,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^17.0.10":
+"@types/react-dom@npm:^17.0.11":
   version: 17.0.11
   resolution: "@types/react-dom@npm:17.0.11"
   dependencies:
@@ -776,7 +792,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^17.0.33":
+"@types/react@npm:*, @types/react@npm:^17.0.35":
   version: 17.0.35
   resolution: "@types/react@npm:17.0.35"
   dependencies:
@@ -1900,7 +1916,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"concurrently@npm:^6.3.0":
+"concurrently@npm:^6.4.0":
   version: 6.4.0
   resolution: "concurrently@npm:6.4.0"
   dependencies:
@@ -2048,11 +2064,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cypress@npm:^8.7.0":
-  version: 8.7.0
-  resolution: "cypress@npm:8.7.0"
+"cypress@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "cypress@npm:9.0.0"
   dependencies:
-    "@cypress/request": ^2.88.6
+    "@cypress/request": ^2.88.7
     "@cypress/xvfb": ^1.2.4
     "@types/node": ^14.14.31
     "@types/sinonjs__fake-timers": ^6.0.2
@@ -2087,7 +2103,6 @@ __metadata:
     ospath: ^1.2.2
     pretty-bytes: ^5.6.0
     proxy-from-env: 1.0.0
-    ramda: ~0.27.1
     request-progress: ^3.0.0
     supports-color: ^8.1.1
     tmp: ~0.2.1
@@ -2096,7 +2111,7 @@ __metadata:
     yauzl: ^2.10.0
   bin:
     cypress: bin/cypress
-  checksum: 607771bda6c37228cd8537a7faa2ae89ae9bcf2720210b22865f532059d8c7e0741bb7520f241c46ceacd503ff349e41f0eea104734e71423071dd67a79098b9
+  checksum: ae481f26f6a51370bad6571b7edd525559c0b4e36fb9c33ac26c822610bd2f0b419614f12c1d87aff59c46afb3c2f06f7e167f924023da65fe2a3987927255c8
   languageName: node
   linkType: hard
 
@@ -2582,7 +2597,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:^0.13.12":
+"esbuild@npm:^0.13.14":
   version: 0.13.14
   resolution: "esbuild@npm:0.13.14"
   dependencies:
@@ -5198,6 +5213,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mime@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "mime@npm:3.0.0"
+  bin:
+    mime: cli.js
+  checksum: f43f9b7bfa64534e6b05bd6062961681aeb406a5b53673b53b683f27fcc4e739989941836a355eef831f4478923651ecc739f4a5f6e20a76487b432bfd4db928
+  languageName: node
+  linkType: hard
+
 "mimic-fn@npm:^1.0.0":
   version: 1.2.0
   resolution: "mimic-fn@npm:1.2.0"
@@ -6258,14 +6282,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ramda@npm:~0.27.1":
-  version: 0.27.1
-  resolution: "ramda@npm:0.27.1"
-  checksum: 31a0c0ef739b2525d7615f84cbb5d3cb89ee0c795469b711f729ea1d8df0dccc3cd75d3717a1e9742d42315ce86435680b7c87743eb7618111c60c144a5b8059
-  languageName: node
-  linkType: hard
-
-"react-dom@npm:^17.0.1":
+"react-dom@npm:^17.0.2":
   version: 17.0.2
   resolution: "react-dom@npm:17.0.2"
   dependencies:
@@ -6309,7 +6326,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^17.0.1":
+"react@npm:^17.0.2":
   version: 17.0.2
   resolution: "react@npm:17.0.2"
   dependencies:
@@ -6477,27 +6494,28 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "remix-worker-template@workspace:."
   dependencies:
-    "@cloudflare/kv-asset-handler": ^0.1.3
-    "@cloudflare/workers-types": ^2.2.2
-    "@cloudflare/wrangler": ^1.19.4
-    "@prisma/client": ^3.5.0
+    "@cloudflare/kv-asset-handler": ^0.2.0
+    "@cloudflare/workers-types": ^3.2.0
+    "@cloudflare/wrangler": ^1.19.5
+    "@prisma/client": 3.5.0
     "@remix-run/cloudflare-workers": ^0.21.0
     "@remix-run/dev": ^0.21.0
     "@remix-run/react": ^0.21.0
     "@tailwindcss/aspect-ratio": 0.3.0
     "@tailwindcss/forms": 0.3.4
     "@tailwindcss/typography": 0.4.1
-    "@testing-library/cypress": ^8.0.1
-    "@types/react": ^17.0.33
-    "@types/react-dom": ^17.0.10
+    "@testing-library/cypress": ^8.0.2
+    "@types/node": 16.11.9
+    "@types/react": ^17.0.35
+    "@types/react-dom": ^17.0.11
     classnames: ^2.3.1
     commitizen: 4.2.4
-    concurrently: ^6.3.0
+    concurrently: ^6.4.0
     cross-env: ^7.0.3
-    cypress: ^8.7.0
+    cypress: ^9.0.0
     cz-emoji: 1.3.1
     daisyui: ^1.16.2
-    esbuild: ^0.13.12
+    esbuild: ^0.13.14
     execa: 6.0.0
     husky: 7.0.4
     lint-staged: 12.0.3
@@ -6507,8 +6525,8 @@ __metadata:
     prettier-plugin-prisma: 3.5.0
     pretty-quick: 3.1.2
     prisma: ^3.5.0
-    react: ^17.0.1
-    react-dom: ^17.0.1
+    react: ^17.0.2
+    react-dom: ^17.0.2
     react-router-dom: ^6.0.2
     remix: ^0.21.0
     rimraf: ^3.0.2
@@ -6517,7 +6535,7 @@ __metadata:
     tasuku: 1.0.2
     ts-node: 10.4.0
     tsconfig-paths: 3.11.0
-    typescript: ^4.4.4
+    typescript: 4.5.2
   languageName: unknown
   linkType: soft
 
@@ -7658,7 +7676,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^4.3.4, typescript@npm:^4.4.3, typescript@npm:^4.4.4":
+"typescript@npm:4.5.2, typescript@npm:^4.3.4, typescript@npm:^4.4.3":
   version: 4.5.2
   resolution: "typescript@npm:4.5.2"
   bin:
@@ -7668,7 +7686,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.3.4#~builtin<compat/typescript>, typescript@patch:typescript@^4.4.3#~builtin<compat/typescript>, typescript@patch:typescript@^4.4.4#~builtin<compat/typescript>":
+"typescript@patch:typescript@4.5.2#~builtin<compat/typescript>, typescript@patch:typescript@^4.3.4#~builtin<compat/typescript>, typescript@patch:typescript@^4.4.3#~builtin<compat/typescript>":
   version: 4.5.2
   resolution: "typescript@patch:typescript@npm%3A4.5.2#~builtin<compat/typescript>::version=4.5.2&hash=ddd1e8"
   bin:

@@ -1,24 +1,23 @@
-import type { MetaFunction } from "remix";
-import { Link } from "remix";
+import type { MetaFunction } from 'remix'
+import { Link } from 'remix'
 
-export let meta: MetaFunction = () => {
+export const meta: MetaFunction = () => {
   return {
-    title: "Remix Cloudflare Demo",
-    description: "A demo of Remix running on Cloudflare workers.",
-  };
-};
+    title: 'Remix Cloudflare Demo',
+    description: 'A demo of Remix running on Cloudflare workers.',
+  }
+}
 
 export default function Index() {
   return (
     <main>
-      <section className="hero py-24 bg-base-200">
+      <section className="py-24 hero bg-base-200">
         <div className="block hero-content lg:flex-row">
           <div>
             <h1 className="mb-5 text-5xl font-bold">Remix on Cloudflare</h1>
             <p className="mb-5">
-              Cloudflare + Remix gives you the ability to build fully dynamic
-              sites that run on the edge without the drawbacks of static
-              generation!
+              Cloudflare + Remix gives you the ability to build fully dynamic sites that run on the
+              edge without the drawbacks of static generation!
             </p>
             <a
               className="btn btn-primary"
@@ -30,8 +29,8 @@ export default function Index() {
         </div>
       </section>
 
-      <section className="container my-12 mx-auto px-4">
-        <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <section className="container px-4 mx-auto my-12">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           <Link
             prefetch="intent"
             to="themes"
@@ -79,13 +78,11 @@ export default function Index() {
           >
             <div className="card-body">
               <h2 className="card-title">Geolocation</h2>
-              <p>
-                Access the users location through Cloudflare request properties.
-              </p>
+              <p>Access the users location through Cloudflare request properties.</p>
             </div>
           </Link>
         </div>
       </section>
     </main>
-  );
+  )
 }

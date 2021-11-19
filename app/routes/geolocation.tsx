@@ -1,41 +1,40 @@
-import type { LoaderFunction, MetaFunction } from "remix";
-import { json, useLoaderData } from "remix";
+import type { LoaderFunction, MetaFunction } from 'remix'
+import { json, useLoaderData } from 'remix'
 
-import countries from "../lib/countries.json";
+import countries from '../lib/countries.json'
 
-export let meta: MetaFunction = () => {
+export const meta: MetaFunction = () => {
   return {
-    title: "Geolocation | Remix Cloudflare Demo",
-    description: "Demo utilizing geolocation data on Cloudflare.",
-  };
-};
+    title: 'Geolocation | Remix Cloudflare Demo',
+    description: 'Demo utilizing geolocation data on Cloudflare.',
+  }
+}
 
-export let loader: LoaderFunction = ({ request }) => {
-  let cf = (request as any).cf as IncomingRequestCfProperties;
+export const loader: LoaderFunction = ({ request }) => {
+  const cf = (request as any).cf as IncomingRequestCfProperties
 
-  let country = countries.find((c) => c.cca2 === cf.country);
+  const country = countries.find((c) => c.cca2 === cf.country)
 
-  let formattedLocation = "";
-  if (cf.city) formattedLocation += cf.city + ", ";
-  if (cf.region) formattedLocation += cf.region + ", ";
-  formattedLocation += cf.country;
+  let formattedLocation = ''
+  if (cf.city) formattedLocation += cf.city + ', '
+  if (cf.region) formattedLocation += cf.region + ', '
+  formattedLocation += cf.country
 
   return json({
     formattedLocation,
     country,
-  });
-};
+  })
+}
 
 export default function Geolocation() {
-  let { formattedLocation, country } = useLoaderData();
+  const { formattedLocation, country } = useLoaderData()
 
   return (
-    <main className="container mx-auto prose px-4 py-8">
+    <main className="container px-4 py-8 mx-auto prose">
       <h1>Geolocation</h1>
 
       <p>
-        Show localized content based on information avaliable in the{" "}
-        <code>Request.cf</code> object.
+        Show localized content based on information avaliable in the <code>Request.cf</code> object.
       </p>
 
       <p>
@@ -59,5 +58,5 @@ export default function Geolocation() {
         ))}
       </ul>
     </main>
-  );
+  )
 }

@@ -1,8 +1,8 @@
-import { createCookieSessionStorage } from "remix";
+import { createCookieSessionStorage } from 'remix'
 
-export let unencryptedSession = createCookieSessionStorage({
+export const unencryptedSession = createCookieSessionStorage({
   cookie: {
-    path: "/",
-    sameSite: "lax",
+    path: '/',
+    sameSite: 'lax',
   },
-});
+})

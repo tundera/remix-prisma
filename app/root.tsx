@@ -1,55 +1,40 @@
-import type {
-  LinksFunction,
-  LoaderFunction,
-  ShouldReloadFunction,
-} from "remix";
-import {
-  json,
-  Links,
-  LiveReload,
-  Meta,
-  Scripts,
-  Outlet,
-  useCatch,
-  useLoaderData,
-} from "remix";
+import type { LinksFunction, LoaderFunction, ShouldReloadFunction } from 'remix'
+import { json, Links, LiveReload, Meta, Scripts, Outlet, useCatch, useLoaderData } from 'remix'
 
-import Navbar from "./components/navbar";
-import { useScrollRestoration } from "./utils/scroll";
-import { unencryptedSession } from "./sessions.server";
+import Navbar from './components/navbar'
+import { useScrollRestoration } from './utils/scroll'
+import { unencryptedSession } from './sessions.server'
 
-import tailwindStylesUrl from "./styles/tailwind.css";
+import tailwindStylesUrl from './styles/tailwind.css'
 
-export let links: LinksFunction = () => {
-  return [{ rel: "stylesheet", href: tailwindStylesUrl }];
-};
+export const links: LinksFunction = () => {
+  return [{ rel: 'stylesheet', href: tailwindStylesUrl }]
+}
 
-export let loader: LoaderFunction = async ({ request }) => {
-  let session = await unencryptedSession.getSession(
-    request.headers.get("Cookie")
-  );
-  let theme = session.get("theme") || "dark";
+export const loader: LoaderFunction = async ({ request }) => {
+  const session = await unencryptedSession.getSession(request.headers.get('Cookie'))
+  const theme = session.get('theme') || 'dark'
 
-  return json({ theme });
-};
+  return json({ theme })
+}
 
-export let unstable_shouldReload: ShouldReloadFunction = ({ submission }) => {
-  return !!submission && submission.action === "/themes";
-};
+export const unstable_shouldReload: ShouldReloadFunction = ({ submission }) => {
+  return !!submission && submission.action === '/themes'
+}
 
 function Document({
   children,
   title,
   theme,
 }: {
-  children: React.ReactNode;
-  title?: string;
-  theme?: string;
+  children: React.ReactNode
+  title?: string
+  theme?: string
 }) {
-  useScrollRestoration();
+  useScrollRestoration()
 
   return (
-    <html lang="en" data-theme={theme || "dark"}>
+    <html lang="en" data-theme={theme || 'dark'}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -62,24 +47,24 @@ function Document({
         <Navbar />
         {children}
         <Scripts />
-        {process.env.NODE_ENV === "development" && <LiveReload />}
+        {process.env.NODE_ENV === 'development' && <LiveReload />}
       </body>
     </html>
-  );
+  )
 }
 
 export default function App() {
-  let { theme } = useLoaderData();
+  const { theme } = useLoaderData()
 
   return (
     <Document theme={theme}>
       <Outlet />
     </Document>
-  );
+  )
 }
 
 export function CatchBoundary() {
-  let caught = useCatch();
+  const caught = useCatch()
 
   switch (caught.status) {
     case 401:
@@ -90,26 +75,21 @@ export function CatchBoundary() {
             {caught.status} {caught.statusText}
           </h1>
         </Document>
-      );
+      )
 
     default:
-      throw new Error(
-        `Unexpected caught response with status: ${caught.status}`
-      );
+      throw new Error(`Unexpected caught response with status: ${caught.status}`)
   }
 }
 
 export function ErrorBoundary({ error }: { error: Error }) {
-  console.error(error);
+  console.error(error)
 
   return (
     <Document title="Uh-oh!">
       <h1>App Error</h1>
       <pre>{error.message}</pre>
-      <p>
-        Replace this UI with what you want users to see when your app throws
-        uncaught errors.
-      </p>
+      <p>Replace this UI with what you want users to see when your app throws uncaught errors.</p>
     </Document>
-  );
+  )
 }

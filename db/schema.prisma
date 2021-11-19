@@ -1,17 +1,29 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-generator client {
-  provider = "prisma-client-js"
-}
-
 datasource db {
-  provider = "postgresql"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["mongoDb", "dataProxy"]
+}
+
+model Log {
+  id        String   @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  createdAt DateTime @default(now())
+  level     Level
+  message   String
+  meta      Json
+}
+
+enum Level {
+  Info
+  Warn
+  Error
+}
+
 model Coach {
-  id          String   @id @default(cuid())
+  id          String   @id @default(dbgenerated()) @map("_id") @db.ObjectId
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   name        String
@@ -19,11 +31,11 @@ model Coach {
   type        String
   isAssistant String
   team        Team?    @relation(fields: [teamId], references: [id])
-  teamId      String?
+  teamId      String?  @db.ObjectId
 }
 
 model Player {
-  id        String   @id @default(cuid())
+  id        String   @id @default(dbgenerated()) @map("_id") @db.ObjectId
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   name      String
@@ -34,25 +46,25 @@ model Player {
   number    String?
   position  String?
   team      Team?    @relation(fields: [teamId], references: [id])
-  teamId    String?
+  teamId    String?  @db.ObjectId
 }
 
 model ColorScheme {
-  id        String   @id @default(cuid())
+  id        String   @id @default(dbgenerated()) @map("_id") @db.ObjectId
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   primary   String
   secondary String
   team      Team?    @relation(fields: [teamId], references: [id])
-  teamId    String?  @unique
+  teamId    String?  @unique @db.ObjectId
 
   @@unique([primary, secondary], name: "ColorScheme_primary_secondary_key")
 }
 
 model Team {
+  id            String       @id @default(dbgenerated()) @map("_id") @db.ObjectId
   createdAt     DateTime     @default(now())
   updatedAt     DateTime     @updatedAt
-  id            String       @id @default(cuid())
   name          String       @unique
   handle        String       @unique
   slug          String       @unique
