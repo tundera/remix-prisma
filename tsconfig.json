@@ -1,0 +1,17 @@
+{
+  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"],
+  "compilerOptions": {
+    "lib": ["DOM", "DOM.Iterable", "ESNext", "WebWorker"],
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "target": "ESNext",
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {},
+
+    // Remix takes care of building everything in `remix build`.
+    "noEmit": true
+  }
+}
