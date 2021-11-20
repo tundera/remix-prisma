@@ -1,0 +1,9 @@
+.yarn
+node_modules
+dist
+build
+public/build
+.mf
+db/data
+worker.js
+*.tsbuildinfo

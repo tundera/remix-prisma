@@ -1,5 +1,5 @@
-import { Link } from 'remix'
 import { useLocation } from 'react-router-dom'
+import { Link } from 'remix'
 
 export default function Navbar() {
   const { pathname } = useLocation()

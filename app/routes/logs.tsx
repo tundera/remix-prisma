@@ -1,5 +1,4 @@
 import type { LoaderFunction, MetaFunction } from 'remix'
-
 import { json, useLoaderData } from 'remix'
 
 import { getLogsData } from '../lib/logs'
@@ -13,7 +12,7 @@ export const meta: MetaFunction = () => {
   }
 }
 
-export const loader: LoaderFunction = async ({ request }) => {
+export const loader: LoaderFunction = async () => {
   return json(await getLogsData())
 }
 

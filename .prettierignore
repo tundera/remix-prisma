@@ -4,4 +4,5 @@ public/build/**
 .mf/**
 dist/**
 tmp/**
+worker.js
 *.tsconfig.tsbuildinfo

@@ -1,11 +1,10 @@
 import type { LinksFunction, LoaderFunction, ShouldReloadFunction } from 'remix'
-import { json, Links, LiveReload, Meta, Scripts, Outlet, useCatch, useLoaderData } from 'remix'
+import { json, Links, LiveReload, Meta, Outlet, Scripts, useCatch, useLoaderData } from 'remix'
 
-import Navbar from './components/navbar'
-import { useScrollRestoration } from './utils/scroll'
+import Header from './components/Header'
 import { unencryptedSession } from './sessions.server'
-
 import tailwindStylesUrl from './styles/tailwind.css'
+import { useScrollRestoration } from './utils/scroll'
 
 export const links: LinksFunction = () => {
   return [{ rel: 'stylesheet', href: tailwindStylesUrl }]
@@ -44,7 +43,6 @@ function Document({
         <Links />
       </head>
       <body>
-        <Navbar />
         {children}
         <Scripts />
         {process.env.NODE_ENV === 'development' && <LiveReload />}
@@ -58,6 +56,7 @@ export default function App() {
 
   return (
     <Document theme={theme}>
+      <Header />
       <Outlet />
     </Document>
   )

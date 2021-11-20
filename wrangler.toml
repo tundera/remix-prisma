@@ -13,7 +13,7 @@ bucket = "./public"
 entry-point = "."
 
 [build]
-command = "npm run build"
+command = "yarn build"
 watch_dir = "app"
 
 [build.upload]

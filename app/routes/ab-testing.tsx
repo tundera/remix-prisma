@@ -1,14 +1,13 @@
-import type { ActionFunction, LoaderFunction, MetaFunction } from 'remix'
-import { json, Form, useLoaderData } from 'remix'
 import cn from 'classnames'
+import type { ActionFunction, LoaderFunction, MetaFunction } from 'remix'
+import { Form, json, useLoaderData } from 'remix'
 
+import aImage from '../images/a.jpg'
+import bImage from '../images/b.jpg'
+import defaultImage from '../images/default.jpg'
 import { unencryptedSession } from '../sessions.server'
 
 const SESSION_KEY = 'ab-testing-bucket'
-
-import defaultImage from '../images/default.jpg'
-import aImage from '../images/a.jpg'
-import bImage from '../images/b.jpg'
 
 export const meta: MetaFunction = () => {
   return {

@@ -1,5 +1,5 @@
 import type { LoaderFunction, MetaFunction } from 'remix'
-import { Link, json, useLoaderData } from 'remix'
+import { json, Link, useLoaderData } from 'remix'
 
 export const meta: MetaFunction = () => {
   return {

@@ -1,6 +1,5 @@
 import type { LoaderFunction, MetaFunction } from 'remix'
-
-import { json, useLoaderData, Link } from 'remix'
+import { json, Link, useLoaderData } from 'remix'
 
 import TeamCard from '../../components/TeamCard'
 import { getTeams } from '../../lib/teams'
@@ -24,7 +23,7 @@ export default function Teams() {
   return (
     <main>
       <section className="py-24 hero bg-base-200">
-        <div className="bg-white">
+        <div className="w-full bg-white">
           <div className="max-w-2xl px-4 py-16 mx-auto sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
             <h2 className="sr-only">Products</h2>
 

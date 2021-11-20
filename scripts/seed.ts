@@ -1,11 +1,9 @@
-import task from 'tasuku'
-
 import db from 'app/db.server'
-
 import coaches from 'db/data/backups/documents/coaches.json'
 import players from 'db/data/backups/documents/players.json'
-import colorSchemes from 'db/data/team-colors.json'
 import teams from 'db/data/backups/documents/teams.json'
+import colorSchemes from 'db/data/team-colors.json'
+import task from 'tasuku'
 
 export const seedCoachData = async () => {
   for (const coach of coaches) {

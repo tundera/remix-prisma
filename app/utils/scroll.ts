@@ -1,6 +1,6 @@
+import { useTransition } from '@remix-run/react'
 import * as React from 'react'
 import { useLocation } from 'react-router-dom'
-import { useTransition } from '@remix-run/react'
 
 let firstRender = true
 
@@ -13,7 +13,7 @@ if (typeof window !== 'undefined' && window.history.scrollRestoration !== 'manua
 // shouldn't have to do it this way
 // https://github.com/remix-run/remix/issues/240
 type LocationState = undefined | { isSubmission: boolean }
-export function useScrollRestoration(enabled: boolean = true) {
+export function useScrollRestoration(enabled = true) {
   const positions = React.useRef<Map<string, number>>(new Map()).current
   const location = useLocation()
   const isSubmission = (location.state as LocationState)?.isSubmission ?? false
@@ -42,7 +42,7 @@ export function useScrollRestoration(enabled: boolean = true) {
 
 export function useElementScrollRestoration(
   ref: React.MutableRefObject<HTMLElement | null>,
-  enabled: boolean = true,
+  enabled = true,
 ) {
   const positions = React.useRef<Map<string, number>>(new Map()).current
   const location = useLocation()

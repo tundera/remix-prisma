@@ -40,6 +40,12 @@ export const getTeams = async () => {
       slug: true,
       name: true,
       city: true,
+      colorScheme: {
+        select: {
+          primary: true,
+          secondary: true,
+        },
+      },
     },
   })
 
