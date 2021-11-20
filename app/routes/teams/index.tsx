@@ -2,10 +2,10 @@ import type { LoaderFunction, MetaFunction } from 'remix'
 
 import { json, useLoaderData, Link } from 'remix'
 
-import TeamCard from '../components/TeamCard'
-import { getTeamsData } from '../lib/teams'
+import TeamCard from '../../components/TeamCard'
+import { getTeams } from '../../lib/teams'
 
-export type TeamsLoaderData = Await<ReturnType<typeof getTeamsData>>
+export type TeamsLoaderData = Await<ReturnType<typeof getTeams>>
 
 export const meta: MetaFunction = () => {
   return {
@@ -15,7 +15,7 @@ export const meta: MetaFunction = () => {
 }
 
 export const loader: LoaderFunction = async ({ request }) => {
-  return json(await getTeamsData())
+  return json(await getTeams())
 }
 
 export default function Teams() {
@@ -30,7 +30,7 @@ export default function Teams() {
 
             <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
               {teams.map((team) => (
-                <Link key={team.id} to={`teams/${team.id}`} className="group">
+                <Link key={team.id} to={team.id} className="group">
                   <TeamCard team={team} />
                 </Link>
               ))}
