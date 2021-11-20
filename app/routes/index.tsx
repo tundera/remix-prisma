@@ -81,6 +81,16 @@ export default function Index() {
               <p>Access the users location through Cloudflare request properties.</p>
             </div>
           </Link>
+          <Link
+            prefetch="intent"
+            to="teams"
+            className="card lg:card-side bordered hover:border-primary-focus"
+          >
+            <div className="card-body">
+              <h2 className="card-title">Teams</h2>
+              <p>View NBA team data sourced from a live MongoDB Atlas cluster.</p>
+            </div>
+          </Link>
         </div>
       </section>
     </main>
