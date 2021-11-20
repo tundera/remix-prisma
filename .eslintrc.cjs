@@ -20,6 +20,7 @@ module.exports = {
       jsx: true,
     },
     sourceType: 'module',
+    project: 'tsconfig.json',
     extraFileExtensions: ['.mjs', '.cjs', '.md', '.mdx'],
   },
   rules: {
