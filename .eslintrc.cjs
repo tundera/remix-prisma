@@ -20,7 +20,7 @@ module.exports = {
       jsx: true,
     },
     sourceType: 'module',
-    project: ['tsconfig.json'],
+    project: 'tsconfig.json',
     extraFileExtensions: ['.mjs', '.cjs', '.md', '.mdx'],
   },
   rules: {
@@ -71,7 +71,7 @@ module.exports = {
       },
     },
     {
-      files: ['**/*.test.ts', '**/*.test.tsx', 'test/**/*', 'jest.config.ts', 'jest.setup.ts'],
+      files: ['**/*.test.ts', '**/*.test.tsx', 'test', 'jest.config.ts', 'jest.setup.ts'],
       env: {
         'jest/globals': true,
       },
@@ -82,7 +82,7 @@ module.exports = {
         'plugin:prettier/recommended',
       ],
       parserOptions: {
-        project: ['tsconfig.test.json'],
+        project: 'tsconfig.test.json',
       },
       rules: {
         '@typescript-eslint/no-empty-function': 'off',
@@ -104,7 +104,7 @@ module.exports = {
       },
       extends: ['plugin:cypress/recommended', 'plugin:prettier/recommended'],
       parserOptions: {
-        project: ['cypress/tsconfig.json'],
+        project: 'cypress/tsconfig.json',
       },
       rules: {
         '@typescript-eslint/no-empty-function': 'off',
@@ -122,7 +122,7 @@ module.exports = {
     {
       files: ['worker/**/*'],
       parserOptions: {
-        project: ['worker/tsconfig.json'],
+        project: 'worker/tsconfig.json',
       },
       settings: {
         'import/resolver': {

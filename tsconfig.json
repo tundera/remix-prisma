@@ -1,20 +1,19 @@
 {
   "compilerOptions": {
-    "lib": ["DOM", "DOM.Iterable", "ESNext", "WebWorker"],
-    "module": "ESNext",
-    "esModuleInterop": true,
+    "lib": ["dom", "dom.iterable", "esnext", "webworker"],
+    "module": "esnext",
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "jsx": "react-jsx",
-    "moduleResolution": "node",
-    "target": "ESNext",
-    "types": ["node", "react/next", "react-dom/next"],
     "strict": true,
+    "esModuleInterop": true,
+    "target": "esnext",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "types": ["node", "react/next", "react-dom/next"],
+    "typeRoots": ["node_modules/@types", "types"],
     "baseUrl": ".",
-    "paths": {},
-
-    // Remix takes care of building everything in `remix build`.
-    "noEmit": true
+    "jsx": "react-jsx",
+    "paths": {}
   },
   "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js", ".eslintrc.cjs", "*.config.cjs"],
   "exclude": ["node_modules", "test", "cypress", "worker", "jest.config.ts", "jest.setup.ts"]

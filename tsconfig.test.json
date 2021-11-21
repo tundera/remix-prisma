@@ -6,5 +6,6 @@
     "types": ["node", "jest", "react/next", "react-dom/next"],
     "typeRoots": ["node_modules/@types", "types"]
   },
-  "include": ["test", "jest.setup.ts", "jest.config.ts"]
+  "include": ["**/*.test.ts", "**/*.test.tsx", "test", "jest.config.ts", "jest.setup.ts"],
+  "exclude": ["node_modules"]
 }

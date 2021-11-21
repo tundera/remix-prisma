@@ -2,7 +2,10 @@
   "compilerOptions": {
     "target": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "types": ["cypress", "react/next", "react-dom/next", "@testing-library/cypress"]
+    "types": ["cypress", "react/next", "react-dom/next", "@testing-library/cypress"],
+    "typeRoots": ["../node_modules/@types", "../types"],
+    "baseUrl": "."
   },
-  "include": ["**/*.ts"]
+  "include": ["**/*.ts"],
+  "exclude": ["../node_modules"]
 }
