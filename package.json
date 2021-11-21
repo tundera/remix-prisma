@@ -19,6 +19,7 @@
     "dev:miniflare": "miniflare --kv REDIRECTS --kv-persist --build-command \"node -r tsm -r tsconfig-paths/register ./build.ts\" --disable-cache --watch",
     "dev:remix": "remix watch",
     "dev": "cross-env NODE_ENV=development concurrently \"npm:dev:*\"",
+    "type-check": "tsc",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
     "populatekv": "node ./scripts/populate-kv.js",
