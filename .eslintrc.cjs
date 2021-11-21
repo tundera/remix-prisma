@@ -20,7 +20,7 @@ module.exports = {
       jsx: true,
     },
     sourceType: 'module',
-    project: 'tsconfig.json',
+    project: ['tsconfig.json'],
     extraFileExtensions: ['.mjs', '.cjs', '.md', '.mdx'],
   },
   rules: {
@@ -65,7 +65,13 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['*.test.ts', '*.test.tsx', 'tests/**/*'],
+      files: ['**/*.cjs', '**/*.config.js'],
+      rules: {
+        '@typescript-eslint/no-var-requires': 'off',
+      },
+    },
+    {
+      files: ['**/*.test.ts', '**/*.test.tsx', 'test/**/*'],
       env: {
         'jest/globals': true,
       },
@@ -75,6 +81,9 @@ module.exports = {
         'plugin:jest-formatting/recommended',
         'plugin:prettier/recommended',
       ],
+      parserOptions: {
+        project: ['tsconfig.test.json'],
+      },
       rules: {
         '@typescript-eslint/no-empty-function': 'off',
         'react/display-name': 'off',
@@ -89,11 +98,14 @@ module.exports = {
       },
     },
     {
-      files: ['*.spec.ts', '*.spec.tsx'],
+      files: ['**/*.spec.ts', '**/*.spec.tsx', 'cypress/**/*'],
       env: {
         'cypress/globals': true,
       },
       extends: ['plugin:cypress/recommended', 'plugin:prettier/recommended'],
+      parserOptions: {
+        project: ['cypress/tsconfig.json'],
+      },
       rules: {
         '@typescript-eslint/no-empty-function': 'off',
         'react/display-name': 'off',
@@ -103,6 +115,20 @@ module.exports = {
           typescript: {
             alwaysTryTypes: true,
             project: 'cypress/tsconfig.json',
+          },
+        },
+      },
+    },
+    {
+      files: ['worker/**/*'],
+      parserOptions: {
+        project: ['worker/tsconfig.json'],
+      },
+      settings: {
+        'import/resolver': {
+          typescript: {
+            alwaysTryTypes: true,
+            project: 'worker/tsconfig.json',
           },
         },
       },

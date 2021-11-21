@@ -4,5 +4,5 @@
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "types": ["cypress", "react/next", "react-dom/next", "@testing-library/cypress"]
   },
-  "include": ["**/*.ts", "integration/remix.spec.js"]
+  "include": ["**/*.ts"]
 }

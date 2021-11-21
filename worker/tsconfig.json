@@ -4,5 +4,6 @@
     "module": "commonjs",
     "lib": ["esnext"],
     "types": ["@cloudflare/workers-types"]
-  }
+  },
+  "include": ["**/*.ts"]
 }

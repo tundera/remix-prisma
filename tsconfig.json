@@ -16,6 +16,6 @@
     // Remix takes care of building everything in `remix build`.
     "noEmit": true
   },
-  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "test", "cypress", "worker", "jest.setup.ts", "jest.config.ts"]
+  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js", ".eslintrc.cjs", "*.config.cjs"],
+  "exclude": ["node_modules", "test", "cypress", "worker"]
 }
