@@ -71,7 +71,7 @@ module.exports = {
       },
     },
     {
-      files: ['**/*.test.ts', '**/*.test.tsx', 'test/**/*'],
+      files: ['**/*.test.ts', '**/*.test.tsx', 'test/**/*', 'jest.config.ts', 'jest.setup.ts'],
       env: {
         'jest/globals': true,
       },
