@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import type { LinksFunction, LoaderFunction, ShouldReloadFunction } from 'remix'
 import { json, Links, LiveReload, Meta, Outlet, Scripts, useCatch, useLoaderData } from 'remix'
 

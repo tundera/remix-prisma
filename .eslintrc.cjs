@@ -48,8 +48,8 @@ module.exports = {
       'error',
       {
         groups: [
-          ['^.*\\u0000$'], // Type imports
           ['^\\u0000'], // Side effect imports.
+          ['^.*\\u0000$'], // Type imports
           [`^(${require('module').builtinModules.join('|')})(/|$)`],
           ['^(react|remix)', '^@?\\w'],
           ['^(app|db)(/.*|$)'],
