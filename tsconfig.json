@@ -11,9 +11,8 @@
     "noEmit": true,
     "types": ["node", "react/next", "react-dom/next"],
     "typeRoots": ["node_modules/@types", "types"],
-    "baseUrl": ".",
     "jsx": "react-jsx",
-    "paths": {}
+    "baseUrl": "."
   },
   "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js", ".eslintrc.cjs", "*.config.cjs"],
   "exclude": ["node_modules", "test", "cypress", "worker", "jest.config.ts", "jest.setup.ts"]

@@ -1,32 +1,50 @@
-import * as esbuild from 'esbuild'
+import task from 'tasuku'
+import { execa } from 'execa'
 
-const mode = process.env.NODE_ENV?.toLowerCase() ?? 'development'
-const databaseUrl = process.env.DATABASE_URL ?? ''
-const cloudinaryCloudName = process.env.CLOUDINARY_CLOUD_NAME ?? ''
-
-console.log(`[Worker] Running esbuild in ${mode} mode`)
-
-esbuild.build({
-  entryPoints: ['./worker/index.ts'],
-  bundle: true,
-  minify: mode === 'production',
-  format: 'esm',
-  define: {
-    'process.env.NODE_ENV': `"${mode}"`,
-    'process.env.DATABASE_URL': `"${databaseUrl}"`,
-    'process.env.CLOUDINARY_CLOUD_NAME': `"${cloudinaryCloudName}"`,
-  },
-  outfile: 'worker.js',
-  plugins: [
-    {
-      name: 'prisma-plugin',
-      setup(build) {
-        build.onResolve({ filter: /^@prisma\/client$/ }, () => {
-          return {
-            path: require.resolve('@prisma/client'),
-          }
+const runBuildTasks = async () => {
+  await task('Running build tasks', async ({ task, setTitle }) => {
+    const buildTasks = await task.group((task) => [
+      task('Generateing Prisma client', async ({ setTitle }) => {
+        await execa('yarn', ['prisma', 'generate'], {
+          env: {
+            PRISMA_CLIENT_ENGINE_TYPE: 'dataproxy',
+          },
         })
-      },
-    },
-  ],
-})
+        setTitle('Successfully generated Prisma client')
+      }),
+      task('Building Tailwind styles', async ({ setTitle }) => {
+        await execa('yarn', ['tailwindcss', '--minify', '-o', 'app/styles/tailwind.css'])
+        setTitle('Successfully built Tailwind styles')
+      }),
+      task('Building Remix application', async ({ setTitle }) => {
+        await execa('yarn', ['remix', 'build'])
+        setTitle('Successfully built Remix application')
+      }),
+      task('Building web worker', async ({ setTitle }) => {
+        await execa('node', ['-r', 'tsm', '-r', 'tsconfig-paths/register', 'build-worker.ts'], {
+          env: {
+            NODE_ENV: 'production',
+          },
+        })
+        setTitle('Successfully built web worker')
+      }),
+    ])
+
+    buildTasks.clear()
+
+    setTitle('Successfully ran build tasks')
+  })
+}
+
+const main = async () => {
+  await runBuildTasks()
+}
+
+main()
+  .catch((error) => {
+    console.error(error)
+    process.exit(1)
+  })
+  .finally(() => {
+    process.exit(0)
+  })

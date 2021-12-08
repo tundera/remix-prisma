@@ -13,7 +13,7 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:prettier/recommended',
   ],
-  plugins: ['simple-import-sort', 'import'],
+  plugins: ['import'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -27,8 +27,6 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
     '@typescript-eslint/no-empty-function': 'off',
-    'simple-import-sort/imports': 'error',
-    'simple-import-sort/exports': 'error',
     'import/first': 'error',
     'import/newline-after-import': 'error',
     'import/no-duplicates': 'error',
@@ -44,21 +42,6 @@ module.exports = {
         project: 'tsconfig.json',
       },
     },
-    imports: [
-      'error',
-      {
-        groups: [
-          ['^\\u0000'], // Side effect imports.
-          ['^.*\\u0000$'], // Type imports
-          [`^(${require('module').builtinModules.join('|')})(/|$)`],
-          ['^(react|remix)', '^@?\\w'],
-          ['^(app|db)(/.*|$)'],
-          ['^\\.\\.(?!/?$)', '^\\.\\./?$'], // Parent imports. Put `..` last.
-          ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'], // Other relative imports. Put same-folder imports and `.` last.
-          ['^.+\\.s?css$'],
-        ],
-      },
-    ],
     react: {
       version: 'detect',
     },

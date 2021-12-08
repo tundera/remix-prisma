@@ -1,6 +1,6 @@
-const { Miniflare } = require('miniflare')
+import { Miniflare } from 'miniflare'
 
-async function run() {
+const run = async () => {
   const miniflare = new Miniflare({
     script: ' ',
     buildCommand: ' ',

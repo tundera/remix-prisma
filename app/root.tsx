@@ -1,8 +1,9 @@
 import { Suspense } from 'react'
 import type { LinksFunction, LoaderFunction, ShouldReloadFunction } from 'remix'
-import { json, Links, LiveReload, Meta, Outlet, Scripts, useCatch, useLoaderData } from 'remix'
+import { json, Links, LiveReload, Meta, Outlet, Scripts, useLoaderData } from 'remix'
 
 import Header from './components/Header'
+import Footer from './components/Footer'
 import { unencryptedSession } from './sessions.server'
 import tailwindStylesUrl from './styles/tailwind.css'
 import { useScrollRestoration } from './utils/scroll'
@@ -57,29 +58,15 @@ export default function App() {
 
   return (
     <Document theme={theme}>
-      <Header />
-      <Outlet />
+      <div className="flex flex-col justify-between min-h-screen w-full bg-gray-200 dark:bg-gray-700">
+        <Header />
+        <main className="flex flex-col items-center justify-center min-h-[92vh] px-16 py-16">
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
     </Document>
   )
-}
-
-export function CatchBoundary() {
-  const caught = useCatch()
-
-  switch (caught.status) {
-    case 401:
-    case 404:
-      return (
-        <Document title={`${caught.status} ${caught.statusText}`}>
-          <h1>
-            {caught.status} {caught.statusText}
-          </h1>
-        </Document>
-      )
-
-    default:
-      throw new Error(`Unexpected caught response with status: ${caught.status}`)
-  }
 }
 
 export function ErrorBoundary({ error }: { error: Error }) {
