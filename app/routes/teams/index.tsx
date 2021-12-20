@@ -9,7 +9,7 @@ export type TeamsLoaderData = Awaited<ReturnType<typeof getTeams>>
 export const meta: MetaFunction = () => {
   return {
     title: 'Teams | Remix Cloudflare Demo',
-    description: 'Demo reading from a mongodb database using prisma.',
+    description: 'Demo reading teams from a database using prisma.',
   }
 }
 

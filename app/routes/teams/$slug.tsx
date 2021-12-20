@@ -9,7 +9,7 @@ export type TeamLoaderData = Awaited<ReturnType<typeof getTeamBySlug>>
 export const meta: MetaFunction = ({ data }) => {
   return {
     title: `${data.team.city} ${data.team.name} | Remix Cloudflare Demo`,
-    description: 'Demo Cloudflare KV store to do redirects at the edge.',
+    description: 'Demo reading team from a database using prisma.',
   }
 }
 
