@@ -1,6 +1,4 @@
-import type { TeamLoaderData } from '~/routes/teams/$id'
-
-import { useParams } from 'react-router-dom'
+import type { TeamLoaderData } from '~/routes/teams/$slug'
 
 import { useCloudinaryImage } from '~/hooks/useCloudinaryImage'
 
@@ -9,10 +7,7 @@ type PlayerCardProps = {
 }
 
 const PlayerCard = ({ player }: PlayerCardProps) => {
-  const { id: teamId } = useParams()
-  console.log(teamId)
-
-  const { imageURL: teamImage } = useCloudinaryImage(`nba/teams/${teamId ?? ''}`)
+  const { imageURL: teamImage } = useCloudinaryImage(`nba/teams/${player.team?.handle}`)
   const { imageURL: playerImage } = useCloudinaryImage(`nba/players/${player.handle}`)
 
   return (

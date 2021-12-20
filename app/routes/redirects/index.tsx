@@ -21,21 +21,21 @@ export default function RedirectsIndex() {
 
   return (
     <main className="container px-4 py-8 mx-auto prose">
-      <h1>AB testing with buckets</h1>
+      <h1>Redirect testing with buckets</h1>
 
       {err ? <p className="text-error">{err}</p> : null}
 
       <p>
-        This demo redirects any path from{' '}
-        <Link prefetch="intent" to="1">
-          /redirects/1
+        This demo redirects any path from <code>{'/redirects/{team-slug}'}</code> to{' '}
+        <code>{'/redirects/teams/{team-slug}'}</code> by looking up the pathname in a Cloudflare KV
+        store. For example:{' '}
+        <Link prefetch="intent" to="/redirects/bulls">
+          {'/redirects/bulls'}
         </Link>{' '}
-        -{' '}
-        <Link prefetch="intent" to="1000">
-          /redirects/1000
-        </Link>{' '}
-        to <code>/redirects/post/1</code> - <code>/redirects/post/1000</code> by looking up the
-        pathname in a Cloudflare KV store.
+        will redirect to{' '}
+        <Link prefetch="intent" to="/redirects/teams/bulls">
+          {'/redirects/teams/bulls'}
+        </Link>
       </p>
 
       <p>

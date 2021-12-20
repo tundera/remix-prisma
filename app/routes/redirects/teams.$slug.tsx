@@ -4,7 +4,7 @@ import { json, Link, useLoaderData } from 'remix'
 
 export const meta: MetaFunction = ({ params }) => {
   return {
-    title: `Post ${params.slug} | Remix Cloudflare Demo`,
+    title: `Team ${params.slug} | Remix Cloudflare Demo`,
     description: 'Demo Cloudflare KV store to do redirects at the edge.',
   }
 }
@@ -27,13 +27,13 @@ export const loader: LoaderFunction = ({ params, request }) => {
   })
 }
 
-export default function Post() {
+export default function Team() {
   const { extraRedirects, latency, slug } = useLoaderData()
   console.log({ latency })
 
   return (
     <main className="container px-4 py-8 mx-auto prose">
-      <h1>Post {slug}</h1>
+      <h1>Team {slug}</h1>
       {typeof latency === 'string' ? <p>latency: {latency}ms</p> : null}
       <p>
         <Link prefetch="intent" to="/redirects">

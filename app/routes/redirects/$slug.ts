@@ -1,5 +1,6 @@
 import type { LoaderFunction, MetaFunction } from 'remix'
 import { redirect } from 'remix'
+import { capitalCase } from 'change-case'
 
 declare global {
   const REDIRECTS: KVNamespace
@@ -7,7 +8,7 @@ declare global {
 
 export const meta: MetaFunction = ({ params }) => {
   return {
-    title: `Post ${params.slug} | Remix Cloudflare Demo`,
+    title: `${capitalCase(params.slug as string)} | Remix Cloudflare Demo`,
     description: 'Demo Cloudflare KV store to do redirects at the edge.',
   }
 }

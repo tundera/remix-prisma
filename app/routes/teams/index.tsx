@@ -30,7 +30,7 @@ export default function Teams() {
 
             <div className="grid max-w-2xl grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-20 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 md:max-w-6xl">
               {teams.map((team) => (
-                <Link key={team.id} to={team.handle} className="group">
+                <Link key={team.id} to={team.slug} className="group">
                   <TeamCard team={team} />
                 </Link>
               ))}
