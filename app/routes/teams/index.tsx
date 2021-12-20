@@ -1,10 +1,10 @@
 import type { LoaderFunction, MetaFunction } from 'remix'
 import { json, Link, useLoaderData } from 'remix'
 
-import TeamCard from '../../components/TeamCard'
-import { getTeams } from '../../lib/teams'
+import TeamCard from '~/components/TeamCard'
+import { getTeams } from '~/lib/teams'
 
-export type TeamsLoaderData = Await<ReturnType<typeof getTeams>>
+export type TeamsLoaderData = Awaited<ReturnType<typeof getTeams>>
 
 export const meta: MetaFunction = () => {
   return {
@@ -21,15 +21,16 @@ export default function Teams() {
   const { teams } = useLoaderData<TeamsLoaderData>()
 
   return (
-    <main>
-      <section className="py-24 hero bg-base-200">
-        <div className="w-full bg-white">
-          <div className="max-w-2xl px-4 py-16 mx-auto sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div className="flex flex-col items-center px-12 py-16 space-y-8 lg:space-y-16">
+      <h1 className="text-6xl font-extrabold">Teams</h1>
+      <section>
+        <div className="w-full">
+          <div className="px-4 mx-auto sm:px-6 lg:px-8">
             <h2 className="sr-only">Products</h2>
 
-            <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+            <div className="grid max-w-2xl grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-20 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 md:max-w-6xl">
               {teams.map((team) => (
-                <Link key={team.id} to={team.id} className="group">
+                <Link key={team.id} to={team.handle} className="group">
                   <TeamCard team={team} />
                 </Link>
               ))}
@@ -37,6 +38,6 @@ export default function Teams() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   )
 }

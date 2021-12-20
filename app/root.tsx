@@ -39,7 +39,22 @@ function Document({
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link
+          rel="preload"
+          href="/fonts/inter-var-latin.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link rel="shortcut icon" href="/static/favicons/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/static/favicons/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/favicons/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/favicons/favicon-16x16.png" />
+        <link rel="manifest" href="/static/favicons/site.webmanifest" />
+        <link rel="mask-icon" href="/static/favicons/safari-pinned-tab.svg" color="#3e3e3e" />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="msapplication-config" content="/static/favicons/browserconfig.xml" />
+        <meta name="theme-color" content="#ffffff" />
         {title ? <title>{title}</title> : null}
         <Meta />
         <Links />
@@ -58,9 +73,9 @@ export default function App() {
 
   return (
     <Document theme={theme}>
-      <div className="flex flex-col justify-between min-h-screen w-full bg-gray-200 dark:bg-gray-700">
+      <div className="flex flex-col justify-between w-full min-h-screen bg-gray-200 dark:bg-gray-700">
         <Header />
-        <main className="flex flex-col items-center justify-center min-h-[92vh] px-16 py-16">
+        <main className="flex flex-col items-center justify-center min-h-[92vh]">
           <Outlet />
         </main>
         <Footer />

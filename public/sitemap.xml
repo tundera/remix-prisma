@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://tundera.dev/ab-testing</loc>
+  </url>
+
+  <url>
+    <loc>https://tundera.dev/about</loc>
+  </url>
+
+  <url>
+    <loc>https://tundera.dev/geolocation</loc>
+  </url>
+
+  <url>
+    <loc>https://tundera.dev</loc>
+  </url>
+
+  <url>
+    <loc>https://tundera.dev/logs</loc>
+  </url>
+
+  <url>
+    <loc>https://tundera.dev/portfolio</loc>
+  </url>
+
+  <url>
+    <loc>https://tundera.dev/themes</loc>
+  </url>
+
+  <url>
+    <loc>https://tundera.dev/redirects/index</loc>
+  </url>
+
+  <url>
+    <loc>https://tundera.dev/redirects/post.$slug</loc>
+  </url>
+
+  <url>
+    <loc>https://tundera.dev/teams/$id</loc>
+  </url>
+
+  <url>
+    <loc>https://tundera.dev/teams/index</loc>
+  </url>
+</urlset>

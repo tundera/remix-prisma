@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://tundera.dev/sitemap.xml

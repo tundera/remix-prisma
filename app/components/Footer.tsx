@@ -4,17 +4,14 @@ import ExternalLink from './ExternalLink'
 
 const Footer = () => {
   return (
-    <footer className="flex flex-col justify-center items-start max-w-4xl mx-auto w-full mb-8">
-      <hr className="w-full border-1 border-gray-200 dark:border-gray-800 mb-8" />
-      <div className="w-full max-w-4xl grid grid-cols-1 gap-4 pb-16 sm:grid-cols-3">
+    <footer className="flex flex-col items-start justify-center w-full max-w-4xl mx-auto mb-8">
+      <hr className="w-full mb-8 border-gray-200 border-1 dark:border-gray-800" />
+      <div className="grid w-full max-w-4xl grid-cols-1 gap-4 pb-16 sm:grid-cols-3">
         <div className="flex flex-col space-y-4">
-          <Link to="/">
-            <a className="text-gray-500 hover:text-gray-600 transition">Home</a>
+          <Link to="/" className="text-gray-500 transition hover:text-gray-600">
+            Home
           </Link>
-          <Link to="/about" className="text-gray-500 hover:text-gray-600 transition">
-            About
-          </Link>
-          <Link to="/teams" className="text-gray-500 hover:text-gray-600 transition">
+          <Link to="/teams" className="text-gray-500 transition hover:text-gray-600">
             Teams
           </Link>
         </div>

@@ -2,7 +2,7 @@ import db from '../db.server'
 
 export const getTeamById = async (id: string) => {
   const team = await db.team.findUnique({
-    where: { id },
+    where: { handle: id },
     select: {
       id: true,
       handle: true,
@@ -22,6 +22,7 @@ export const getTeamById = async (id: string) => {
           slug: true,
           name: true,
           position: true,
+          number: true,
           height: true,
           weight: true,
         },

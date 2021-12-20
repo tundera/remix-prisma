@@ -33,7 +33,6 @@ const Navbar = () => {
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     <NavLink to="/" text="Home" />
-                    <NavLink to="/about" text="About" />
                     <NavLink to="/teams" text="Teams" />
                   </div>
                 </div>
@@ -44,7 +43,6 @@ const Navbar = () => {
           <Disclosure.Panel className="sm:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
               <MobileNavLink to="/" text="Home" />
-              <MobileNavLink to="/about" text="About" />
               <MobileNavLink to="/teams" text="Teams" />
             </div>
           </Disclosure.Panel>

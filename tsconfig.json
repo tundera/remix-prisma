@@ -10,10 +10,12 @@
     "moduleResolution": "node",
     "noEmit": true,
     "types": ["node", "react/next", "react-dom/next"],
-    "typeRoots": ["node_modules/@types", "types"],
     "jsx": "react-jsx",
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./app/*"]
+    }
   },
-  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js", ".eslintrc.cjs", "*.config.cjs"],
+  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js", ".eslintrc.js", "*.config.js"],
   "exclude": ["node_modules", "test", "cypress", "worker", "jest.config.ts", "jest.setup.ts"]
 }
