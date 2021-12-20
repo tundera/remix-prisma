@@ -1,19 +1,9 @@
 /* eslint-disable no-var */
 import { PrismaClient } from '@prisma/client'
 
-// add prisma to the NodeJS global type
-// Prevent multiple instances of Prisma Client in development
-declare global {
-  var db: PrismaClient
-}
-
-const db =
-  global.db ??
-  new PrismaClient({
-    log: process.env.NODE_ENV === 'development' ? ['query', 'error', 'warn'] : ['error'],
-  })
-
-if (process.env.NODE_ENV === 'development') global.db = db
+const db = new PrismaClient({
+  log: process.env.NODE_ENV === 'development' ? ['query', 'error', 'warn'] : ['error'],
+})
 
 export async function disconnect(): Promise<boolean> {
   await db.$disconnect()
