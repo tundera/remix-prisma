@@ -1,6 +1,6 @@
 # remix-worker-template
 
-> The current starter template is based on Remix 0.20.1.
+> The current starter template is based on Remix v1.
 
 - [Remix Docs](https://docs.remix.run)
 - [Customer Dashboard](https://remix.run/dashboard)
