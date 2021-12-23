@@ -22,7 +22,7 @@ const TeamCard = ({ team }: TeamCardProps) => {
           alt={team.name}
           className={`object-cover object-center w-full h-full group-hover:bg-gradient-to-tr`}
         />
-        <h3 className="mt-4 text-xl font-bold text-center text-gray-700">
+        <h3 className="mt-4 text-xl font-bold text-center text-white">
           {team.city} {team.name}
         </h3>
       </motion.div>
