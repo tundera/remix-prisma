@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 
-import { useCloudinaryImage } from '../hooks/useCloudinaryImage'
+import { useCloudinaryImage } from '~/hooks/useCloudinaryImage'
 import type { TeamsLoaderData } from '~/routes/teams'
 
 type TeamCardProps = {
@@ -22,7 +22,7 @@ const TeamCard = ({ team }: TeamCardProps) => {
           alt={team.name}
           className={`object-cover object-center w-full h-full group-hover:bg-gradient-to-tr`}
         />
-        <h3 className="mt-4 text-xl font-bold text-center text-white">
+        <h3 className="mt-4 text-xl font-bold text-center text-black dark:text-white">
           {team.city} {team.name}
         </h3>
       </motion.div>

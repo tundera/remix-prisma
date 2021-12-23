@@ -1,4 +1,4 @@
-import cn from 'classnames'
+import clsx from 'clsx'
 import { Link, useLocation } from 'remix'
 
 type NavLinkProps = {
@@ -14,7 +14,7 @@ const NavLink = ({ to, text }: NavLinkProps) => {
   return (
     <Link
       to={to}
-      className={cn(
+      className={clsx(
         isActive
           ? 'bg-gray-900 text-white'
           : 'text-gray-300 hover:bg-gray-700 dark:text-gray-700 dark:hover:bg-gray-300 hover:text-white',

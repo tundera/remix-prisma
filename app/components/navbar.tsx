@@ -1,8 +1,8 @@
 import { Disclosure } from '@headlessui/react'
 import { FiMenu, FiX } from 'react-icons/fi'
 
-import NavLink from './NavLink'
-import MobileNavLink from './MobileNavLink'
+import NavLink from '~/components/NavLink'
+import MobileNavLink from '~/components/MobileNavLink'
 
 const Navbar = () => {
   return (
