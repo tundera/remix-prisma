@@ -22,7 +22,7 @@ export default function Teams() {
 
   return (
     <div className="flex flex-col items-center px-12 py-16 space-y-8 lg:space-y-16">
-      <h1 className="text-6xl font-extrabold">Teams</h1>
+      <h1 className="text-6xl font-extrabold text-white">Teams</h1>
       <section>
         <div className="w-full">
           <div className="px-4 mx-auto sm:px-6 lg:px-8">

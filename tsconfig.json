@@ -10,7 +10,6 @@
     "moduleResolution": "node",
     "noEmit": true,
     "types": ["node", "react/next", "react-dom/next"],
-    "typeRoots": ["node_modules/@types", "types"],
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {

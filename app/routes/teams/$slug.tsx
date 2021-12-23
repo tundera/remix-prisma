@@ -22,7 +22,7 @@ export default function Team() {
 
   return (
     <div className="flex flex-col items-center py-16 space-y-8 lg:space-y-16">
-      <h1 className="text-6xl font-extrabold">
+      <h1 className="text-6xl font-extrabold text-white">
         {team?.city} {team?.name}
       </h1>
       <section>
